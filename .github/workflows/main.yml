@@ -1,0 +1,21 @@
+name: dispatch target file updated
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+jobs:
+  dispatch-target-updated:
+    strategy:
+      matrix:
+        repo: ['YukiHara1126/nestjs']
+    name: dispatch-target-updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: dispatch target-updated
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: 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
+          repository: YukiHara1126/nestjs
+          event-type: target-updated
